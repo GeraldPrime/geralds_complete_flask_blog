@@ -3,6 +3,7 @@ blinker==1.7.0
 click==8.1.7
 colorama==0.4.6
 Django==4.2.7
+python-dotenv==1.0.0
 Flask==3.0.0
 flask-paginate==2023.10.24
 gunicorn==21.2.0
@@ -18,3 +19,4 @@ templates==0.0.5
 tzdata==2023.3
 utils==1.0.2
 Werkzeug==3.0.1
+
