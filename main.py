@@ -1,4 +1,4 @@
-from blog import create_app
+from blog import create_app, migrate
 
 # __name__ CHANGES TO __main__ WHENEVER THE FILE IS RUNNING
 if __name__ == "__main__":

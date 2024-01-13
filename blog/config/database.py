@@ -19,3 +19,134 @@ def get_connection():
 
   except Exception as e:
     print("DATABASE ERROR:", str(e))
+
+
+
+def create_admin_table():
+  db = get_connection()
+
+  # TERMINATES THE FUNCTION IF THERE'S NO CONNECTION
+  if not db:
+      return
+
+  connection, cursor = db
+
+  sql = """CREATE TABLE IF NOT EXISTS admin (
+      id INT PRIMARY KEY AUTO_INCREMENT,
+      name VARCHAR(50) NOT NULL,
+      email VARCHAR(70) NOT NULL,
+      password VARCHAR(255) NOT NULL,
+      profile_picture VARCHAR(255) NOT NULL,
+      about TEXT NOT NULL,
+      specialty VARCHAR(70) NOT NULL,
+      full_name VARCHAR(100) NOT NULL,
+      web_url VARCHAR(225) NOT NULL
+  )"""
+
+  cursor.execute(sql)
+  connection.commit()
+
+  print("(USERS) TABLE CREATED!")
+  connection.close()
+
+
+def create_article_table():
+    db = get_connection()
+
+    # TERMINATES THE FUNCTION IF THERE'S NO CONNECTION
+    if not db:
+        return
+
+    connection, cursor = db
+
+    sql = """CREATE TABLE IF NOT EXISTS article (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        title VARCHAR(255) NOT NULL,
+        image VARCHAR(255) NOT NULL,
+        category INT NOT NULL,
+        content TEXT NOT NULL,
+        author VARCHAR(100) NOT NULL,
+        date DATETIME DEFAULT current_timestamp()
+    )"""
+
+    cursor.execute(sql)
+    connection.commit()
+
+    print("(POSTS) TABLE CREATED!")
+    connection.close()
+
+
+def create_category_table():
+    db = get_connection()
+
+    # TERMINATES THE FUNCTION IF THERE'S NO CONNECTION
+    if not db:
+        return
+
+    connection, cursor = db
+
+    sql = """CREATE TABLE IF NOT EXISTS category (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        name VARCHAR(50) NOT NULL
+    )"""
+
+    cursor.execute(sql)
+    connection.commit()
+
+    print("(EXAMPLE) TABLE CREATED!")
+
+    if connection:
+        connection.close()
+
+
+def create_comment_table():
+    db = get_connection()
+
+    # TERMINATES THE FUNCTION IF THERE'S NO CONNECTION
+    if not db:
+        return
+
+    connection, cursor = db
+
+    sql = """CREATE TABLE IF NOT EXISTS comment (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        user_id INT NOT NULL,
+        user_name VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+        article_id INT NOT NULL,
+        message VARCHAR(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+        date DATE DEFAULT current_timestamp(),
+        user_image VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+    )"""
+
+    cursor.execute(sql)
+    connection.commit()
+
+    print("(COMMENT) TABLE CREATED!")
+
+    if connection:
+        connection.close()
+
+
+def create_user_table():
+    db = get_connection()
+
+    # TERMINATES THE FUNCTION IF THERE'S NO CONNECTION
+    if not db:
+        return
+
+    connection, cursor = db
+
+    sql = """CREATE TABLE IF NOT EXISTS user (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        username VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+        email VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+        password VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+    )"""
+
+    cursor.execute(sql)
+    connection.commit()
+
+    print("(USERS_CREDENTIALS) TABLE CREATED!")
+
+    if connection:
+        connection.close()
