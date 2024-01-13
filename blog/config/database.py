@@ -66,7 +66,7 @@ def create_article_table():
         category INT NOT NULL,
         content TEXT NOT NULL,
         author VARCHAR(100) NOT NULL,
-        date DATETIME DEFAULT current_timestamp()
+        date DATETIME DEFAULT 
     )"""
 
     cursor.execute(sql)
@@ -114,7 +114,7 @@ def create_comment_table():
         user_name VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
         article_id INT NOT NULL,
         message VARCHAR(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-        date DATE DEFAULT current_timestamp(),
+        date DATETIME DEFAULT ,
         user_image VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
     )"""
 
