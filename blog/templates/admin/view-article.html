@@ -57,7 +57,7 @@
                         <img src="/static/uploads/{{ article.image }}" style="max-width: 100px; object-fit: contain;" />
                     </td>
                     <td style="white-space: nowrap;">{{ article.author }}</td>
-                    <td>{{ sub_words(article.content, 20) }}...</td>
+                    <td>{{ sub_words(article.content, 10) }}...</td>
                     <td style="white-space: nowrap;">{{ article.date }}</td>
                     <td style="white-space: nowrap;">
                         <a title="edit" href="/owner/article/edit/{{ article.id }}" class="text-reset fs-16 px-1">

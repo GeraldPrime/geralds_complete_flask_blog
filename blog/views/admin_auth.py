@@ -2,9 +2,9 @@ from flask import Blueprint, render_template, request, flash, redirect, session
 from ..config.database import get_connection
 from werkzeug.security import generate_password_hash, check_password_hash
 from ..utils.decorators import autheticated_admin, guest_admin, prevent_multiple
-from ..store.category import get_all_categories
+from ..store.category import get_all_categories, get_all_users
 from ..store.article import get_all_articles
-
+from ..store.profile import get_admin
 
 admin = Blueprint("admin", __name__) 
 db = get_connection()
@@ -74,6 +74,8 @@ def handle_login_admin():
 
   admin = cursor.fetchone()
   
+
+  
   if not admin:
     flash("Admin does not exist", "danger")
     return redirect("/owner")
@@ -108,8 +110,10 @@ def dashboard_page():
     return redirect("/owner/dashboard")
   
   _, cursor = db
+  users = get_all_users(cursor, descending=False)
   categories = get_all_categories(cursor)
   articles = get_all_articles(cursor)
+  admin = get_admin(cursor)
 
-  return render_template("admin/dashboard.html", categories=categories, articles=articles)
+  return render_template("admin/dashboard.html",users=users,admin=admin, categories=categories, articles=articles)
   

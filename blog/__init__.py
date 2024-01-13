@@ -3,7 +3,8 @@ from .config.variables import SECRET_KEY
 import os
 
 # GETS THE FOLDER (ABSOLUTE) NAME FOR THE `__init__.py` -> something.../blog/
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+# BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def create_app():
   app = Flask(__name__) 
@@ -13,6 +14,7 @@ def create_app():
   # JOINS THE BASE DIRECTORY WITH /static/uploads -> something.../blog/static/uploads/
   app.config["BLOG_UPLOAD_PATH"] = os.path.join(BASE_DIR, "static/uploads/") 
   app.config["MAX_CONTENT_LENGTH"] = 2 * 1024 * 1024 # 2MB
+  app.config['PROFILE_UPLOAD_PATH'] = os.path.join(BASE_DIR, "static/profile_uploads/") 
 
 
   # BLUEPRINT
@@ -24,6 +26,12 @@ def create_app():
 
   from .views.article import article
   app.register_blueprint(article, url_prefix="/owner/article")
+
+  from .views.profile import profile
+  app.register_blueprint(profile, url_prefix="/owner/profile")
+ 
+  from .views.user_auth import user
+  app.register_blueprint(user, url_prefix="/user")
 
 
   # ERROR 404

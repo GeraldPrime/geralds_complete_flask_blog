@@ -7,7 +7,7 @@ from ..store.article import get_all_articles, get_one_article, get_all_articles_
 from werkzeug.utils import secure_filename 
 from datetime import datetime
 import os
-
+from ..store.profile import get_admin
 
 article = Blueprint("article", __name__)
 db = get_connection()
@@ -23,8 +23,9 @@ def articles_page():
   conn, cursor = db
   # articles = get_all_articles_alt(cursor)
   articles = get_all_articles(cursor)
+  admin = get_admin(cursor)
   
-  return render_template("admin/view-article.html", articles=articles, sub_words=sub_words)
+  return render_template("admin/view-article.html",admin=admin, articles=articles, sub_words=sub_words)
 
 
 # HANDLE ADD ARTICLES PAGE
@@ -36,8 +37,10 @@ def add_article_page():
   
   conn, cursor = db
   categories = get_all_categories(cursor)
+  admin = get_admin(cursor)
   
-  return render_template("admin/add-article.html", categories=categories)
+  
+  return render_template("admin/add-article.html",admin=admin, categories=categories)
 
 
 # HANDLE EDIT ARTICLE PAGE
@@ -50,8 +53,10 @@ def edit_article_page(id):
   conn, cursor = db
   categories = get_all_categories(cursor)
   article = get_one_article(cursor, id)
+  admin = get_admin(cursor)
   
-  return render_template("admin/edit-article.html", categories=categories, article=article)
+  
+  return render_template("admin/edit-article.html", admin=admin, categories=categories, article=article)
 
 
 # HANDLE DELETE ARTICLE PAGE

@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, flash, redirect
 from ..utils.decorators import autheticated_admin
 from ..config.database import get_connection
 from ..store.category import get_all_categories, get_one_category
+from ..store.profile import get_admin
 
 
 category = Blueprint("category", __name__)
@@ -17,11 +18,15 @@ def category_page():
   _, cursor = db
   editing = None
   categories = get_all_categories(cursor, True)
+  admin = get_admin(cursor)
+  
 
   if request.args.get("cat_id"):
     editing = get_one_category(cursor, id=request.args.get("cat_id"))
 
-  return render_template("admin/category.html", categories=categories, editing=editing)
+  
+
+  return render_template("admin/category.html",admin=admin, categories=categories, editing=editing)
 
 
 @category.post("/create")
