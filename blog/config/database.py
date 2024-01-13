@@ -1,13 +1,14 @@
 from mysql.connector import connect
+from .variables import DB_HOST, DB_NAME, DB_PASSWORD,DB_PORT,DB_USER
 
 def get_connection():
   try:
     db = connect (
-      host="localhost",
-      port=3306,
-      user="root",
-      password="",
-      database="flask_blog"
+      host=DB_HOST,
+      port=DB_PORT,
+      user=DB_USER,
+      password=DB_PASSWORD,
+      database=DB_NAME
     )
 
     if db.is_connected(): 
