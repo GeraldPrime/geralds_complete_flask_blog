@@ -36,11 +36,11 @@ def create_admin_table():
       name VARCHAR(50) NOT NULL,
       email VARCHAR(70) NOT NULL,
       password VARCHAR(255) NOT NULL,
-      profile_picture VARCHAR(255) NULL,
-      about TEXT NULL,
-      specialty VARCHAR(70) NULL,
-      full_name VARCHAR(100) NULL,
-      web_url VARCHAR(225) NULL
+      profile_picture VARCHAR(255) DEFAULT NULL,
+      about TEXT DEFAULT NULL,
+      specialty VARCHAR(70) DEFAULT NULL,
+      full_name VARCHAR(100) DEFAULT NULL,
+      web_url VARCHAR(225) DEFAULT NULL
   )"""
 
   cursor.execute(sql)
