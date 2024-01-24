@@ -152,7 +152,7 @@ def user_home_page():
     if request.args.get("cat_id"):
         editing = get_one_category(cursor, id=request.args.get("cat_id"))
 
-    return render_template("user/home_page.html", random_articles=random_articles, lifestyle_random_articles=lifestyle_random_articles, sports_random_articles=sports_random_articles, article_category=article_category, last_article=last_article, one_article=one_article, articles=articles, admin=admin, categories=categories, editing=editing,  sub_words=sub_words, search_query=search_query, search_results=search_results, footer_articles=footer_articles)
+    return render_template("user/index.html", random_articles=random_articles, lifestyle_random_articles=lifestyle_random_articles, sports_random_articles=sports_random_articles, article_category=article_category, last_article=last_article, one_article=one_article, articles=articles, admin=admin, categories=categories, editing=editing,  sub_words=sub_words, search_query=search_query, search_results=search_results, footer_articles=footer_articles)
 
 
 # @user.get('/article_single/<int:article_id>')
