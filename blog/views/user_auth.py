@@ -101,8 +101,6 @@ def logout_admin():
   return redirect("/user")
 
 
-
-
 @user.get("/")
 def user_home_page():
     if not db:

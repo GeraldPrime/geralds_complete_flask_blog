@@ -21,6 +21,9 @@ def get_connection():
     print("DATABASE ERROR:", str(e))
 
 
+   
+
+
 
 def create_admin_table():
   db = get_connection()
