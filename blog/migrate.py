@@ -5,3 +5,4 @@ create_admin_table()
 create_article_table()
 create_category_table()
 create_comment_table()
+# CHECKING
