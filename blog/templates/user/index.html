@@ -126,9 +126,9 @@
 						
 						<div class="col-md-6">
 							<div class="blog-entry">
-								<a href="{{ url_for('user.article_detail', article_id=second_to_last_article.id) }}" class="img-link" style="width: 170px !important;">
+								<a href="{{ url_for('user.article_detail', article_id=second_to_last_article.id) }}" class="img-link" style="width: 430px !important;">
 
-									<img src="/static/uploads/{{ second_to_last_article.image }}" alt="Image" style="height:475px;" class="img-fluid">
+									<img src="/static/uploads/{{ second_to_last_article.image }}" alt="Image" style="height:475px; width: 430px;" class="img-fluid">
 								</a>
 								<span class="date">{{ second_to_last_article.date }}</span>
 								<h2><a href="{{ url_for('user.article_detail', article_id=second_to_last_article.id) }}">{{ second_to_last_article.title }}</a></h2>
@@ -140,8 +140,8 @@
 
 						<div class="col-md-6">
 							<div class="blog-entry">
-								<a href="{{ url_for('user.article_detail', article_id=last_article.id) }}" class="img-link" >
-									<img src="/static/uploads/{{ last_article.image }}" alt="Image" style="height:475px;" class="img-fluid">
+								<a href="{{ url_for('user.article_detail', article_id=last_article.id) }}" class="img-link" style="width: 430px !important;" >
+									<img src="/static/uploads/{{ last_article.image }}" alt="Image" style="height:475px; width: 430px" class="img-fluid">
 								</a>
 								<span class="date">{{ second_to_last_article.date }}</span>
 								<h2><a href="{{ url_for('user.article_detail', article_id=last_article.id) }}">{{ last_article.title }}</a></h2>
@@ -238,7 +238,7 @@
 				<div class="col-lg-4 mb-4">
 					<div class="post-entry-alt">
 						
-						<a href="{{ url_for('user.article_detail', article_id=article.id) }}" class="img-link "><img src="/static/uploads/{{ article.image }}" style="height: 265px; width=300px" alt="Image" class="img-fluid "></a>
+						<a href="{{ url_for('user.article_detail', article_id=article.id) }}" class="img-link "><img src="/static/uploads/{{ article.image }}" style="height: 265px; width: 400px" alt="Image" class="img-fluid "></a>
 
 
 						<div class="excerpt">

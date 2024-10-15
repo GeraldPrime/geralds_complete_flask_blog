@@ -122,7 +122,7 @@ def user_home_page():
     sports_random_articles = get_random_articles_by_category(cursor, "sports", random_order=True, num_articles=3) #for the first sports section
     lifestyle_random_articles= get_random_articles_by_category(cursor, "lifestyle", random_order=True, num_articles=4)#for the first lifestyle section
 
-    random_articles = get_articles(cursor, random_order=True, num_articles=10)
+    random_articles = get_articles(cursor, random_order=True, num_articles=12)
 
     footer_articles = get_articles(cursor, descending=True, random_order=False,num_articles=3)
 

@@ -20,7 +20,7 @@ def article_file_upload(image):
         return data
 
     # CHECK IMAGE TYPE
-    allowed_types = ["image/png", "image/jpeg", "image/jpg"]
+    allowed_types = ["image/png", "image/jpeg", "image/jpg", "image/avif"]
     if not image.mimetype in allowed_types:
        data['error'] = "file (type) not allowed"
        return data

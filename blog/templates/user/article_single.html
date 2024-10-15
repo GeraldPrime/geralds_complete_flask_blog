@@ -223,7 +223,7 @@
         <div class="col-md-6 col-lg-3">
           <div class="blog-entry">
             <a href="{{ url_for('user.article_detail', article_id=article.id) }}" class="img-link">
-              <img src="/static/uploads/{{ article.image }}" style="height: 265px; width=350px" alt="Image" class="img-fluid">
+              <img src="/static/uploads/{{ article.image }}" style="height: 265px; width: 400px !important;" !important alt="Image" class="img-fluid">
             </a>
             <span class="date">{{ article.date }}</span>
             <h2><a href="{{ url_for('user.article_detail', article_id=article.id) }}">{{ article.title }}</a></h2>
